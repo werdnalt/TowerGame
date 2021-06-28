@@ -35,9 +35,6 @@ public class Tower : MonoBehaviour
     void Shoot()
     {
         Projectile proj = GameObject.Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
-
-
-
         if (proj) 
         {
             proj.ShootAt(minionsToShoot.Peek().transform, projectileLifetime, projectileSpeed);

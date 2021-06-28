@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7827179500105068104}
   - component: {fileID: 5693489492780111673}
   - component: {fileID: 3192892914776530399}
+  - component: {fileID: 6136850444069565307}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 38834610246245028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.7748081, y: -0.45300758, z: -144.5705}
-  m_LocalScale: {x: 0.39214, y: 0.39214, z: 0.39214}
+  m_LocalScale: {x: 0.40521, y: 0.40521, z: 0.40521}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e902b0b90a15438a36a9516b9a40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  timeBetweenShots: 0
+  projectileSpeed: 0
+  projectileLifetime: 0
 --- !u!212 &3192892914776530399
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 7ce233febbb82e441846386ed4221d3f, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: e3770db0ef5055e49961e24f0c77e734, type: 3}
   m_Color: {r: 1, g: 0.006289184, b: 0.6881026, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,3 +100,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6136850444069565307
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38834610246245028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3

@@ -11,6 +11,7 @@ public class Minion : MonoBehaviour
 
     private int targetWaypointIndex;
     private Path path;
+    private Path.Direction pathTraversalDirection;
     private bool isPaused;
 
     // Update is called once per frame
@@ -24,29 +25,36 @@ public class Minion : MonoBehaviour
     {
         float step = speed * Time.fixedDeltaTime;
         transform.position = Vector2.MoveTowards(transform.position, path.waypoints[targetWaypointIndex].transform.position, step);
-    }
 
-    public void SetPath(Path p)
-    {
-        path = p;
-        targetWaypointIndex = 1;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.GetComponent<Waypoint>())
+        if (Vector2.Distance(transform.position, path.waypoints[targetWaypointIndex].transform.position) < 0.01f)
         {
             Debug.Log("hit waypoint");
-            targetWaypointIndex++;
+            switch (pathTraversalDirection)
+            {
+                case Path.Direction.Forward:
+                    targetWaypointIndex++;
+                    break;
+                case Path.Direction.Backward:
+                    targetWaypointIndex--;
+                    break;
+            }
         }
+    }
 
-        if (other.gameObject.GetComponent<Projectile>())
+    public void SetPath(Path p, Path.Direction pathTraversalDirection)
+    {
+        path = p;
+        this.pathTraversalDirection = pathTraversalDirection;
+
+        switch(pathTraversalDirection)
         {
-            Debug.Log("KABOOM");
-            Destroy(other.gameObject);
-            TakeDamage(other.gameObject.GetComponent<Projectile>().damage);
+            case Path.Direction.Forward:
+                targetWaypointIndex = 1;
+                break;
+            case Path.Direction.Backward:
+                targetWaypointIndex = path.waypoints.Count - 2;
+                break;
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D other)
