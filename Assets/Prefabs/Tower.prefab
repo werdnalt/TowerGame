@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0e902b0b90a15438a36a9516b9a40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 0}
+  timeBetweenShots: 0
+  projectileSpeed: 0
+  projectileLifetime: 0
+  maxAmmo: 10
+  costToReload: 0
 --- !u!212 &3192892914776530399
 SpriteRenderer:
   m_ObjectHideFlags: 0

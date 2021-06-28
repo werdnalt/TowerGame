@@ -36,7 +36,6 @@ public class Minion : MonoBehaviour
     {
         if (other.GetComponent<Waypoint>())
         {
-            Debug.Log("hit waypoint");
             targetWaypointIndex++;
         }
 
