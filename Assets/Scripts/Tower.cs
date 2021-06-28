@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour, ChildTriggerable
 {
     public GameObject projectile;
     public float timeBetweenShots;
@@ -29,12 +29,12 @@ public class Tower : MonoBehaviour
         if (Time.time - timeOfLastShot >= timeBetweenShots && minionsToShoot.Count > 0 && currentAmmo >= 1) Shoot(minionsToShoot.Peek().transform);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Minion>()) minionsToShoot.Enqueue(other.gameObject);
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Minion>()) minionsToShoot.Dequeue();
     }
