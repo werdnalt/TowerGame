@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 adjustedMovement = movement * movementSpeed;
         Vector2 newPos = currentPos + adjustedMovement * Time.fixedDeltaTime;
         Vector2 screenPointLocation = Camera.main.WorldToScreenPoint(newPos);
-        Debug.Log(screenPointLocation);
+        //Debug.Log(screenPointLocation);
         rbody.MovePosition(newPos);
     }
 

@@ -8,18 +8,25 @@ public class Tower : MonoBehaviour
     public float timeBetweenShots;
     public float projectileSpeed;
     public float projectileLifetime;
+    public int maxAmmo;
+    public int costToReload;
+    public int damage;
+    public bool isEmpty;
 
     private Queue<GameObject> minionsToShoot = new Queue<GameObject>();
     private float timeOfLastShot;
+    private int currentAmmo;
 
     void Start()
     {
         timeOfLastShot = Time.time;
+        currentAmmo = maxAmmo;
+        isEmpty = false;
     }
 
     void Update()
     {
-        if (Time.time - timeOfLastShot >= timeBetweenShots && minionsToShoot.Count > 0) Shoot();
+        if (Time.time - timeOfLastShot >= timeBetweenShots && minionsToShoot.Count > 0 && currentAmmo >= 1) Shoot(minionsToShoot.Peek().transform);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,14 +38,29 @@ public class Tower : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Minion>()) minionsToShoot.Dequeue();
     }
-
-    void Shoot()
+    void Shoot(Transform aimAt)
     {
         Projectile proj = GameObject.Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Projectile>();
+
         if (proj) 
         {
-            proj.ShootAt(minionsToShoot.Peek().transform, projectileLifetime, projectileSpeed);
+            proj.ShootAt(aimAt, projectileLifetime, projectileSpeed, damage);
+            currentAmmo--;
             timeOfLastShot = Time.time;
+            if (currentAmmo <= 0) isEmpty = true;
         }   
+    }
+
+    public bool Reload(int playerTotalResources)
+    {
+        if (playerTotalResources >= costToReload)
+        {
+            currentAmmo = maxAmmo;
+            isEmpty = false;
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

@@ -49,6 +49,11 @@ MonoBehaviour:
   timeBetweenShots: 0
   projectileSpeed: 0
   projectileLifetime: 0
+<<<<<<< HEAD
+=======
+  maxAmmo: 10
+  costToReload: 0
+>>>>>>> 28b7fe3771be2c16716ee8d0b6fa3dca7df90292
 --- !u!212 &3192892914776530399
 SpriteRenderer:
   m_ObjectHideFlags: 0

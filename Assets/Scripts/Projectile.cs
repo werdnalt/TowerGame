@@ -19,12 +19,13 @@ public class Projectile : MonoBehaviour
         projectileCreatedTime = Time.time;
     }
 
-    public void ShootAt(Transform target, float projectileLifetime, float projectileSpeed)
+    public void ShootAt(Transform target, float projectileLifetime, float projectileSpeed, int damage)
     {
         aim = (target.position - transform.position).normalized;
         this.target = target;
         this.projectileLifetime = projectileLifetime;
         this.projectileSpeed = projectileSpeed;
+        this.damage = damage;
         hasTarget = true;
     }
 
