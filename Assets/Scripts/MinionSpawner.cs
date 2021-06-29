@@ -6,6 +6,7 @@ using System;
 public class MinionSpawner : MonoBehaviour
 {
     public Path path;
+    public int owner;
     public Path.Direction pathTraversalDirection;
     public float timeBetweenGroupSpawns = 6f;
     public GameObject minion;
@@ -52,7 +53,7 @@ public class MinionSpawner : MonoBehaviour
         timeOfLastMinionSpawn = Time.time;
         Vector3 spawnPosition = SpawnPosition(); 
         Minion m = GameObject.Instantiate(minion, spawnPosition, Quaternion.identity).GetComponent<Minion>();
-        m.SetPath(path, pathTraversalDirection); // set minion to begin walking path
+        m.SetPath(path, pathTraversalDirection, owner); // set minion to begin walking path
         minionsOfGroupSpawned++;
 
         if (minionsOfGroupSpawned == groupSize)
