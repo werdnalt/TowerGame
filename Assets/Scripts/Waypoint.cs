@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minion : MonoBehaviour
+public class Waypoint : MonoBehaviour
 {
-    public int health = 10;
-    public double speed;
-
-
     // Start is called before the first frame update
     void Start()
     {

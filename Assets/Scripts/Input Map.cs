@@ -59,6 +59,144 @@ public class @InputMap : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Resource"",
+            ""id"": ""667cd741-5f47-44f8-a74c-b47879a4382a"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""3f9eddc1-60b4-4385-9713-1da6ef3b775f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Harvest"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ef25522-2e59-4157-aa78-2be99b6fa17a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ed34c08e-974d-4930-b8e0-e9b3f523f315"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Harvest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d0b39af-889b-4e63-9f63-6b1e57ba1665"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Tower"",
+            ""id"": ""5f12a07a-fdfb-4e4f-b0e7-76c14956f9b5"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""06cba9c9-2872-4533-aeaf-61e925d8c444"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""48363919-7c3f-431e-acfc-728d3dffbd45"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0ce38f44-4c63-4484-9874-a9ddc5fb90e2"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""372ad132-0160-442c-9742-233cea538fe7"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Base"",
+            ""id"": ""b41fa9b0-c389-4525-ba0b-47c388d90219"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""cddcd746-fd19-44ca-beac-f9de3363eb4f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""718e2e65-508c-40d3-bcf7-c5c43f3573e0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3b225fe8-d41b-4f56-9d50-a93b8753de7b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72980f51-20b0-4362-b6f4-73baf61cf36d"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -67,6 +205,18 @@ public class @InputMap : IInputActionCollection, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Test = m_Movement.FindAction("Test", throwIfNotFound: true);
+        // Resource
+        m_Resource = asset.FindActionMap("Resource", throwIfNotFound: true);
+        m_Resource_Move = m_Resource.FindAction("Move", throwIfNotFound: true);
+        m_Resource_Harvest = m_Resource.FindAction("Harvest", throwIfNotFound: true);
+        // Tower
+        m_Tower = asset.FindActionMap("Tower", throwIfNotFound: true);
+        m_Tower_Move = m_Tower.FindAction("Move", throwIfNotFound: true);
+        m_Tower_Reload = m_Tower.FindAction("Reload", throwIfNotFound: true);
+        // Base
+        m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
+        m_Base_Move = m_Base.FindAction("Move", throwIfNotFound: true);
+        m_Base_Newaction = m_Base.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -153,9 +303,147 @@ public class @InputMap : IInputActionCollection, IDisposable
         }
     }
     public MovementActions @Movement => new MovementActions(this);
+
+    // Resource
+    private readonly InputActionMap m_Resource;
+    private IResourceActions m_ResourceActionsCallbackInterface;
+    private readonly InputAction m_Resource_Move;
+    private readonly InputAction m_Resource_Harvest;
+    public struct ResourceActions
+    {
+        private @InputMap m_Wrapper;
+        public ResourceActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Resource_Move;
+        public InputAction @Harvest => m_Wrapper.m_Resource_Harvest;
+        public InputActionMap Get() { return m_Wrapper.m_Resource; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ResourceActions set) { return set.Get(); }
+        public void SetCallbacks(IResourceActions instance)
+        {
+            if (m_Wrapper.m_ResourceActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_ResourceActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_ResourceActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_ResourceActionsCallbackInterface.OnMove;
+                @Harvest.started -= m_Wrapper.m_ResourceActionsCallbackInterface.OnHarvest;
+                @Harvest.performed -= m_Wrapper.m_ResourceActionsCallbackInterface.OnHarvest;
+                @Harvest.canceled -= m_Wrapper.m_ResourceActionsCallbackInterface.OnHarvest;
+            }
+            m_Wrapper.m_ResourceActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Harvest.started += instance.OnHarvest;
+                @Harvest.performed += instance.OnHarvest;
+                @Harvest.canceled += instance.OnHarvest;
+            }
+        }
+    }
+    public ResourceActions @Resource => new ResourceActions(this);
+
+    // Tower
+    private readonly InputActionMap m_Tower;
+    private ITowerActions m_TowerActionsCallbackInterface;
+    private readonly InputAction m_Tower_Move;
+    private readonly InputAction m_Tower_Reload;
+    public struct TowerActions
+    {
+        private @InputMap m_Wrapper;
+        public TowerActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Tower_Move;
+        public InputAction @Reload => m_Wrapper.m_Tower_Reload;
+        public InputActionMap Get() { return m_Wrapper.m_Tower; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TowerActions set) { return set.Get(); }
+        public void SetCallbacks(ITowerActions instance)
+        {
+            if (m_Wrapper.m_TowerActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_TowerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_TowerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_TowerActionsCallbackInterface.OnMove;
+                @Reload.started -= m_Wrapper.m_TowerActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_TowerActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_TowerActionsCallbackInterface.OnReload;
+            }
+            m_Wrapper.m_TowerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
+            }
+        }
+    }
+    public TowerActions @Tower => new TowerActions(this);
+
+    // Base
+    private readonly InputActionMap m_Base;
+    private IBaseActions m_BaseActionsCallbackInterface;
+    private readonly InputAction m_Base_Move;
+    private readonly InputAction m_Base_Newaction;
+    public struct BaseActions
+    {
+        private @InputMap m_Wrapper;
+        public BaseActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Base_Move;
+        public InputAction @Newaction => m_Wrapper.m_Base_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Base; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BaseActions set) { return set.Get(); }
+        public void SetCallbacks(IBaseActions instance)
+        {
+            if (m_Wrapper.m_BaseActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnMove;
+                @Newaction.started -= m_Wrapper.m_BaseActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_BaseActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_BaseActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_BaseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public BaseActions @Base => new BaseActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnTest(InputAction.CallbackContext context);
+    }
+    public interface IResourceActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnHarvest(InputAction.CallbackContext context);
+    }
+    public interface ITowerActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+    }
+    public interface IBaseActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }
