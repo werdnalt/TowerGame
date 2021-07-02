@@ -33,6 +33,14 @@ public class @InputMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""DeployTower"",
+                    ""type"": ""Button"",
+                    ""id"": ""51740159-c510-4935-8101-5fac224a070e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -55,6 +63,17 @@ public class @InputMap : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0f78dc0-9efe-4656-be16-8f00ed246fbd"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeployTower"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -205,6 +224,7 @@ public class @InputMap : IInputActionCollection, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Test = m_Movement.FindAction("Test", throwIfNotFound: true);
+        m_Movement_DeployTower = m_Movement.FindAction("DeployTower", throwIfNotFound: true);
         // Resource
         m_Resource = asset.FindActionMap("Resource", throwIfNotFound: true);
         m_Resource_Move = m_Resource.FindAction("Move", throwIfNotFound: true);
@@ -268,12 +288,14 @@ public class @InputMap : IInputActionCollection, IDisposable
     private IMovementActions m_MovementActionsCallbackInterface;
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Test;
+    private readonly InputAction m_Movement_DeployTower;
     public struct MovementActions
     {
         private @InputMap m_Wrapper;
         public MovementActions(@InputMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Test => m_Wrapper.m_Movement_Test;
+        public InputAction @DeployTower => m_Wrapper.m_Movement_DeployTower;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -289,6 +311,9 @@ public class @InputMap : IInputActionCollection, IDisposable
                 @Test.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnTest;
                 @Test.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnTest;
                 @Test.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnTest;
+                @DeployTower.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnDeployTower;
+                @DeployTower.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnDeployTower;
+                @DeployTower.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnDeployTower;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -299,6 +324,9 @@ public class @InputMap : IInputActionCollection, IDisposable
                 @Test.started += instance.OnTest;
                 @Test.performed += instance.OnTest;
                 @Test.canceled += instance.OnTest;
+                @DeployTower.started += instance.OnDeployTower;
+                @DeployTower.performed += instance.OnDeployTower;
+                @DeployTower.canceled += instance.OnDeployTower;
             }
         }
     }
@@ -430,6 +458,7 @@ public class @InputMap : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnTest(InputAction.CallbackContext context);
+        void OnDeployTower(InputAction.CallbackContext context);
     }
     public interface IResourceActions
     {

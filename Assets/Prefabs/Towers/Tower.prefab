@@ -99,11 +99,14 @@ MonoBehaviour:
   projectile: {fileID: 3446750932451454691, guid: 2fb7ef2118bc86b4881aff3cffa7a0bc, type: 3}
   timeBetweenShots: 1
   projectileSpeed: 5
-  projectileLifetime: 3
   maxAmmo: 10
   costToReload: 2
   damage: 3
+  cost: 0
+  minimumHeroLevel: 0
   isEmpty: 0
+  owner: 0
+  id: standard
 --- !u!1 &6354265987470166408
 GameObject:
   m_ObjectHideFlags: 0

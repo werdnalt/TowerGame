@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6581724389088021585}
   - component: {fileID: 3413161253918384638}
   - component: {fileID: -3640540528718239964}
+  - component: {fileID: 3366712191854766632}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -135,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 60671672958285a46a2a51ed5426f8dd, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -178,6 +179,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.60046124, y: 0.7592186}
   m_EdgeRadius: 0
+--- !u!114 &3366712191854766632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952869105491303724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ce7154eebc27844963b6bfe673e6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numResources: 0
+  level: 0
+  maxDeployedTowers: 2
+  selectedTower: {fileID: 941344037063921163, guid: af1cee0451ad5634f9b10fe54b0763fd, type: 3}
+  deployedTowers: []
 --- !u!1 &5724155071485705928
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,4 +256,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32df4035f2e1a444c948351786147515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 0}

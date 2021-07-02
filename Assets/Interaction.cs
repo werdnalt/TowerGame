@@ -65,4 +65,15 @@ public class Interaction : MonoBehaviour
             hero.numResources += resource.Harvest();
         }
     }
+
+    void OnDeployTower()
+    {
+        Debug.Log("Attempting to deploy tower");
+            if (hero.selectedTower.CanBeDeployed(hero))
+            {
+                Utility.Pay(hero.selectedTower.cost, hero);
+                hero.selectedTower.Deploy(hero);
+            }
+        }
+    
 }

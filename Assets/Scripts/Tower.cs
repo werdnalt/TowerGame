@@ -10,8 +10,11 @@ public class Tower : MonoBehaviour, ChildTriggerable
     public int maxAmmo;
     public int costToReload;
     public int damage;
+    public int cost;
+    public int minimumHeroLevel;
     public bool isEmpty;
     public int owner;
+    public string id;
 
     private Queue<GameObject> minionsToShoot = new Queue<GameObject>();
     private float timeOfLastShot;
@@ -21,6 +24,7 @@ public class Tower : MonoBehaviour, ChildTriggerable
 
     void Start()
     {
+        Debug.Log("ACTIVE");
         timeOfLastShot = -float.MaxValue;
         currentAmmo = maxAmmo;
         isEmpty = false;
@@ -95,5 +99,21 @@ public class Tower : MonoBehaviour, ChildTriggerable
             return false;
         }
 
+    }
+
+    public bool CanBeDeployed(Hero hero)
+    {
+        if (hero.numResources > cost && hero.deployedTowers.Count < hero.maxDeployedTowers)
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void Deploy(Hero hero)
+    {
+        GameObject deployedTower = Instantiate(PrefabHolder.Instance.Retrieve(id), hero.transform.position, Quaternion.identity);
+        hero.TowerDeployed(deployedTower);
     }
 }

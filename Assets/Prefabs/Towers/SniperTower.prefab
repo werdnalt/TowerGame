@@ -88,6 +88,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5979806210690151246, guid: 96aa00906c4a0924c891e5f8a0322802, type: 3}
+      propertyPath: id
+      value: sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979806210690151246, guid: 96aa00906c4a0924c891e5f8a0322802, type: 3}
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
